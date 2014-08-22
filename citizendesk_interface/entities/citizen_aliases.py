@@ -3,15 +3,6 @@ entity = {
         'authority': {
             'type': 'string'
         },
-        'name_full': {
-            'type': 'string'
-        },
-        'description': {
-            'type': 'string'
-        },
-        'time_zone': {
-            'type': 'string'
-        },
         'identifiers': {
             'type': 'dict',
             'schema': {
@@ -20,6 +11,23 @@ entity = {
                 },
                 'user_name': {
                     'type': 'string'
+                },
+                'user_id': {
+                    'type': 'string'
+                },
+                'user_id_search': {
+                    'type': 'string'
+                },
+            },
+        },
+        'tags': {
+            'type': 'list',
+            'schema': {
+                'type': 'objectid',
+                'data_relation': {
+                    'resource': 'citizen_lists',
+                    'field': '_id',
+                    'embeddable': True,
                 },
             },
         },

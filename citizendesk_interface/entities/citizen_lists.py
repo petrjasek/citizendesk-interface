@@ -3,8 +3,16 @@ entity = {
         'name': {
             'type': 'string',
         },
-        'description': {
+        'variation': {
             'type': 'string',
+            'allowed': [
+                'label-default',
+                'label-primary',
+                'label-success',
+                'label-info',
+                'label-warning',
+                'label-danger',
+            ]
         },
     },
     'resource_methods': ['GET', 'POST'],
