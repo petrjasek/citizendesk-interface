@@ -3,9 +3,16 @@ entity = {
         'name': {
             'type': 'string',
         },
-        'type': {
+        'variation': {
             'type': 'string',
-            'allowed': ['mobile', 'twitter']
+            'allowed': [
+                'label-default',
+                'label-primary',
+                'label-success',
+                'label-info',
+                'label-warning',
+                'label-danger',
+            ]
         },
         'citizens': {
             'type': 'list',
