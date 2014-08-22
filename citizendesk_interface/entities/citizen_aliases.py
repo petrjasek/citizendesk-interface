@@ -39,17 +39,6 @@ entity = {
                 },
             },
         },
-        'tags': {
-            'type': 'list',
-            'schema': {
-                'type': 'objectid',
-                'data_relation': {
-                    'resource': 'citizen_lists',
-                    'field': '_id',
-                    'embeddable': True
-                }
-            }
-        }
     },
     'resource_methods': ['GET'],
     'item_methods': ['GET', 'PATCH'],

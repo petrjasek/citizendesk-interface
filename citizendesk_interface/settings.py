@@ -40,7 +40,6 @@ settings = {
         'twt-searches': twt_searches,
         'twt_streams': twt_streams,
         'steps': steps,
-        'citizen_aliases': {},
         'settings-bool': settings_bool,
         'settings-int': settings_int,
         'settings-string': settings_string,
