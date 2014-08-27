@@ -1,15 +1,16 @@
 from eve.tests import test_settings
+from bson import objectid
 
 alias_id = '53f711499c6167315a536b45'
 list_id = '53f6fff79c61670c2b57f93d'
 list_name = 'friends of friends'
 list = {
-    '_id': list_id,
+    '_id': objectid.ObjectId(list_id),
     'variation': "label-primary",
     'name': list_name
 }
 alias = {
-    '_id': alias_id,
+    '_id': objectid.ObjectId(alias_id),
     'tags': [
         list_id
     ],
@@ -33,7 +34,7 @@ def fun(context):
     context.alias, _ = context.base.get(
         'citizen_aliases',
         item=alias_id,
-        query='embedded={"tags":true}'
+        query='?embedded={"tags":1}'
     )
 
 @when('we ask for aliases')
@@ -49,6 +50,14 @@ def fun(context):
 def fun(context):
     context.alias, _ = context.base.get('citizen_aliases', item=alias_id)
 
+@when('we ask for that alias with embedded lists')
+def fun(context):
+    context.alias, _ = context.base.get(
+        'citizen_aliases',
+        item=alias_id,
+        query='?embedded={"tags":1}'
+    )
+
 @then('we get the alias')
 def fun(context):
     error = 'response is {}'.format(context.alias)
@@ -59,7 +68,6 @@ def fun(context):
 def fun(context):
     error = 'response is {}'.format(context.response)
     assert context.response['_items'][0]['_id'] == alias_id, error
-    assert False
 
 @then('we get tags in the alias')
 def fun(context):
