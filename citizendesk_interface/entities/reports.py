@@ -46,6 +46,13 @@ schema = {
             'field': '_id',
         }
     },
+    'status': {
+        'type':'objectid',
+        'data_relation': {
+            'resource': 'report_statuses',
+            'field': '_id',
+        }
+    },
     'coverages': {
         'type': 'dict',
         'schema': {
