@@ -51,6 +51,7 @@ schema = {
         'data_relation': {
             'resource': 'report_statuses',
             'field': '_id',
+            # careful with embedding, may be null
         }
     },
     'coverages': {
