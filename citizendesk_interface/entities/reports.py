@@ -47,12 +47,21 @@ schema = {
         }
     },
     'status': {
-        'type':'objectid',
+        'type':'string',
+        # just direct statuses are allowed
+        'allowed': [
+            'dismissed',
+            'debunked',
+            'verified'
+        ],
         'data_relation': {
             'resource': 'report_statuses',
-            'field': '_id',
+            'field': 'key',
             # careful with embedding, may be null
         }
+    },
+    'status_updated': {
+        'type': 'datetime'
     },
     'coverages': {
         'type': 'dict',

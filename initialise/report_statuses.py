@@ -13,7 +13,7 @@ init_report_statuses = Init('report_statuses', [{
     'direct': True,
     'description': 'This report will not undergo verification'
 }, {
-    'key': 'false',
+    'key': 'debunked',
     'direct': True,
     'description': 'This report has been proven to be false!'
 }, {

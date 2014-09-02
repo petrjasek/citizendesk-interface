@@ -9,7 +9,14 @@ entity = {
         'key': {
             'type': 'string',
             'required': True,
-            'unique': True
+            'unique': True,
+            'allowed': [
+                'new',
+                'assigned',
+                'debunked',
+                'verified',
+                'dismissed'
+            ]
         },
         'description': {
             'type': 'string',
