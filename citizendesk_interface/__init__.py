@@ -5,6 +5,8 @@ from eve.io.mongo import MongoJSONEncoder
 from eve.render import send_response
 from raven.handlers.logging import SentryHandler
 import superdesk
+import apps.users as superdesk_users
+import apps.auth.db as superdesk_auth
 
 try:
     from eve_docs import eve_docs
@@ -26,6 +28,8 @@ def register_blueprints(app):
     app.register_blueprint(proxy_blueprint, url_prefix='/proxy')
     citizendesk_oauths_init_app(app)
     citizendesk_reports_init_app(app)
+    superdesk_users.init_app(app)
+    superdesk_auth.init_app(app)
     if has_docs:
         Bootstrap(app) # required by eve docs
         app.register_blueprint(eve_docs, url_prefix='/docs')
